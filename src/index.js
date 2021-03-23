@@ -24,17 +24,29 @@ const addRamenToMenu = ramenObject => {
 }
 
 const renderRamenInfo = ramenObject => {
-        ramenInfo.dataset.id = ramenObject.id
+        //ramenInfo.dataset.id = ramenObject.id
         console.log(ramenObject.id)
         ramenInfo.innerHTML = `      
         <img class="detail-image" src="${ramenObject.image}" alt="${ramenObject.name}" />
         <h2 class="name">${ramenObject.name}</h2>
         <h3 class="restaurant">${ramenObject.restaurant}</h3>`
-        
+        ramenRating.dataset.id = ramenObject.id
         ramenRating.rating.value = ramenObject.rating
         ramenRating.comment.value =ramenObject.comment
 }
 
+const ramenOnLoad = oneRamen => {
+
+    ramenInfo.innerHTML = `      
+    <img class="detail-image" src="${oneRamen.image}" alt="${oneRamen.name}" />
+    <h2 class="name">${oneRamen.name}</h2>
+    <h3 class="restaurant">${oneRamen.restaurant}</h3>`
+    
+    ramenRating.dataset.id = oneRamen.id
+    ramenRating.rating.value = oneRamen.rating
+    ramenRating.comment.value = oneRamen.comment   
+
+} 
 
 const fetchAllRamen = event => {
         // const ramenId = event.dataset.id
@@ -43,6 +55,7 @@ const fetchAllRamen = event => {
             .then(response => response.json())
             .then(ramenObjects => { 
                 addRamenToMenu(ramenObjects)
+                ramenOnLoad(ramenObjects[0])
                 })
 
 }
@@ -91,3 +104,39 @@ ramenRating.addEventListener('submit', event => {
 })
 
 fetchAllRamen()
+
+const collectNewInfo = event => {
+    event.preventDefault()
+
+        const name = event.target.name.value
+        const restaurant = event.target.restaurant.value
+        const image = event.target.image.value
+        const rating = event.target.rating.value
+        const comment = event.target["new-comment"].value
+
+        const newRamenObject = {
+            name, restaurant, image, rating, comment           
+        }
+            
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(newRamenObject)
+        })
+        .then(response => response.json())
+        .then(newInfo => {
+            renderRamenInfo(newInfo)
+            addRamenToMenu(newInfo) 
+        })
+           event.target.reset() 
+}
+
+const form = document.querySelector('form#new-ramen')
+
+form.addEventListener('submit', collectNewInfo)
+
+
+    

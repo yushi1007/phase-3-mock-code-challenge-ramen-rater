@@ -39,6 +39,30 @@
       "image": "./assets/ramen/kojiro.jpg",
       "rating": "9",
       "comment": "Perfect for a cold night.fsfds"
+    },
+    {
+      "name": "YU SHI",
+      "restaurant": "dsadsa",
+      "image": "./assets/ramen/naruto.jpg",
+      "rating": "10",
+      "comment": "Insert Comdsdment Here",
+      "id": 6
+    },
+    {
+      "name": "YU SHI",
+      "restaurant": "dsadsa",
+      "image": "./assets/ramen/naruto.jpg",
+      "rating": "10",
+      "comment": "Insert Cdsadsadomment Here",
+      "id": 7
+    },
+    {
+      "name": "dasd",
+      "restaurant": "Hello",
+      "image": "./assets/ramen/kojiro.jpg",
+      "rating": "7",
+      "comment": "Insert Comment Heredddddd",
+      "id": 8
     }
   ]
 }
