@@ -5,7 +5,7 @@
       "name": "Shoyu Ramen",
       "restaurant": "Nonono",
       "image": "./assets/ramen/shoyu.jpg",
-      "rating": "7",
+      "rating": "10",
       "comment": "Delish. Can't go wrong with a classic!"
     },
     {
@@ -13,8 +13,8 @@
       "name": "Naruto Ramen",
       "restaurant": "Naruto",
       "image": "./assets/ramen/naruto.jpg",
-      "rating": 10,
-      "comment": "My absolute fave!"
+      "rating": "9",
+      "comment": "Yummy"
     },
     {
       "id": 3,
@@ -63,6 +63,30 @@
       "rating": "7",
       "comment": "Insert Comment Heredddddd",
       "id": 8
+    },
+    {
+      "name": "YU SHI",
+      "restaurant": "Ramen",
+      "image": "./assets/ramen/gyukotsu.jpg",
+      "rating": "10",
+      "comment": "Awesome",
+      "id": 9
+    },
+    {
+      "name": "YU SHI",
+      "restaurant": "Cooking",
+      "image": "./assets/ramen/naruto.jpg",
+      "rating": "10",
+      "comment": "Insert Comment Here",
+      "id": 10
+    },
+    {
+      "name": "Christina",
+      "restaurant": "dsadsa",
+      "image": "./assets/ramen/gyukotsu.jpg",
+      "rating": "8",
+      "comment": "Insert Comment Here",
+      "id": 11
     }
   ]
 }
