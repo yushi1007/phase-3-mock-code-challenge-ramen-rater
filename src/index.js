@@ -1,5 +1,5 @@
 // write your code here
-
+// HELLO WORLD 
 const body = document.querySelector('body')
 const ramenMenu = body.querySelector('div#ramen-menu')
 const url = "http://localhost:3000/ramens"
@@ -29,7 +29,8 @@ const renderRamenInfo = ramenObject => {
         ramenInfo.innerHTML = `      
         <img class="detail-image" src="${ramenObject.image}" alt="${ramenObject.name}" />
         <h2 class="name">${ramenObject.name}</h2>
-        <h3 class="restaurant">${ramenObject.restaurant}</h3>`
+        <h3 class="restaurant">${ramenObject.restaurant}</h3>
+        <button class='delete-button'>Delete</button>`
         ramenRating.dataset.id = ramenObject.id
         ramenRating.rating.value = ramenObject.rating
         ramenRating.comment.value =ramenObject.comment
@@ -40,7 +41,8 @@ const ramenOnLoad = oneRamen => {
     ramenInfo.innerHTML = `      
     <img class="detail-image" src="${oneRamen.image}" alt="${oneRamen.name}" />
     <h2 class="name">${oneRamen.name}</h2>
-    <h3 class="restaurant">${oneRamen.restaurant}</h3>`
+    <h3 class="restaurant">${oneRamen.restaurant}</h3>
+    <button class='delete-button'>Delete</button>`
     
     ramenRating.dataset.id = oneRamen.id
     ramenRating.rating.value = oneRamen.rating
@@ -138,5 +140,13 @@ const form = document.querySelector('form#new-ramen')
 
 form.addEventListener('submit', collectNewInfo)
 
-
-    
+ramenInfo.addEventListener('click', e => {
+    if(e.target.matches('button.delete-button')){
+        const ramenId = e.target.dataset.id
+        
+        fetch(`${url}/${ramenId}`,{
+                method: 'DELETE'
+        })
+            e.target.remove()
+    }
+})    
